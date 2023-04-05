@@ -26,6 +26,11 @@ function Home() {
     },
   ]);
 
+  const handleDelete = (id) => {
+    const newBlogs = blogs.filter((blog) => blog.id !== id);
+    setBlogs(newBlogs);
+  };
+
   const handleClick = () => {
     setName("luigi");
     setAge(30);
@@ -37,7 +42,7 @@ function Home() {
       <p>
         {name} is {age} years old
       </p>
-      <BlogList blogs={blogs} title="All Blogs" />
+      <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
     </div>
   );
 }
