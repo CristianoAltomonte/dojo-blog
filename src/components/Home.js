@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 function Home() {
@@ -35,6 +35,9 @@ function Home() {
     setName("luigi");
     setAge(30);
   };
+
+  useEffect(() => {}, []);
+
   return (
     <div className="home">
       <h2>Homepage</h2>
