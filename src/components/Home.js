@@ -7,7 +7,7 @@ function Home() {
     data: blogs,
     isPending,
     error,
-  } = useFetch("http://localhost:8000/blogs");
+  } = useFetch("http://localhost:3000/blogs");
   const [name, setName] = useState("mario");
   const [age, setAge] = useState(25);
 
