@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import useFetch from "../UseFetch";
 
 function BlogDetails() {
@@ -9,6 +9,16 @@ function BlogDetails() {
     error,
   } = useFetch("http://localhost:3000/blogs/" + id);
 
+  const history = useHistory();
+
+  const handleDelete = () => {
+    fetch("http://localhost:3000/blogs/" + blog.id, {
+      method: "DELETE",
+    }).then(() => {
+      history.push("/");
+    });
+  };
+
   return (
     <div className="blog-details">
       {isPending && <div>Loading...</div>}
@@ -18,6 +28,7 @@ function BlogDetails() {
           <h2>{blog.title}</h2>
           <p>Written by {blog.author}</p>
           <div>{blog.body}</div>
+          <button onClick={handleDelete}>Delete</button>
         </article>
       )}
     </div>
