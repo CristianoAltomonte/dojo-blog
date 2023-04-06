@@ -25,8 +25,6 @@ function Home() {
     <div className="home">
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
-
-      <h2>Homepage</h2>
       {/* <button onClick={handleClick}>Click me</button>
       <p>
         {name} is {age} years old
